@@ -1,0 +1,194 @@
+/* ============================================================
+   JL Studio - Prueba de Dos Puntos
+   estilos.css
+   ============================================================ */
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    background: #111;
+    color: #eee;
+    font-family: system-ui, sans-serif;
+}
+
+/* Cualquier elemento con esta clase se oculta. */
+.oculto {
+    display: none !important;
+}
+
+/* ------------------------------------------------------------
+   Raíz del DOM Overlay.
+   Fuera de AR tiene fondo oscuro. En AR (body.en-ar) el fondo
+   es transparente para que se vea la cámara.
+   ------------------------------------------------------------ */
+#overlay {
+    min-height: 100%;
+    max-width: 480px;
+    margin: 0 auto;
+    padding: calc(20px + env(safe-area-inset-top, 0px)) 16px
+             calc(20px + env(safe-area-inset-bottom, 0px)) 16px;
+    text-align: center;
+}
+
+body.en-ar #overlay {
+    max-width: none;
+    margin: 0;
+    padding: calc(10px + env(safe-area-inset-top, 0px)) 10px
+             calc(10px + env(safe-area-inset-bottom, 0px)) 10px;
+    background: transparent;
+}
+
+body.en-ar {
+    background: transparent;
+}
+
+/* ------------------------------------------------------------
+   Cabecera y mensajes.
+   ------------------------------------------------------------ */
+h1 {
+    font-size: 1.5rem;
+    margin: 0 0 4px 0;
+}
+
+.subtitulo {
+    margin: 0 0 12px 0;
+    opacity: 0.7;
+}
+
+body.en-ar #cabecera {
+    display: none;
+}
+
+.aviso {
+    font-size: 0.9rem;
+    opacity: 0.8;
+    line-height: 1.4;
+    margin: 0;
+}
+
+.estado {
+    min-height: 1.4em;
+    margin: 8px 0 14px 0;
+    font-size: 0.9rem;
+    opacity: 0.85;
+}
+
+.estado.ok {
+    color: #5bd68a;
+    opacity: 1;
+}
+
+.estado.error {
+    color: #ff6b6b;
+    opacity: 1;
+}
+
+body.en-ar .estado {
+    margin: 0 0 8px 0;
+    padding: 6px 10px;
+    background: rgba(0, 0, 0, 0.55);
+    border-radius: 8px;
+}
+
+/* ------------------------------------------------------------
+   Bloques de información.
+   ------------------------------------------------------------ */
+.bloque {
+    background: #1c1c1c;
+    border: 1px solid #2c2c2c;
+    border-radius: 12px;
+    padding: 10px 14px;
+    margin-bottom: 14px;
+    text-align: left;
+}
+
+body.en-ar .bloque {
+    background: rgba(0, 0, 0, 0.55);
+    border-color: rgba(255, 255, 255, 0.15);
+    margin-bottom: 8px;
+}
+
+.bloque h2 {
+    font-size: 1rem;
+    margin: 0 0 6px 0;
+    color: #8ab4f8;
+}
+
+.dato {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    padding: 6px 0;
+    border-top: 1px solid #2c2c2c;
+    font-size: 0.9rem;
+}
+
+body.en-ar .dato {
+    border-top-color: rgba(255, 255, 255, 0.12);
+    font-size: 0.8rem;
+    padding: 4px 0;
+}
+
+.dato:first-of-type {
+    border-top: none;
+}
+
+.dato span {
+    opacity: 0.7;
+}
+
+.dato strong {
+    font-variant-numeric: tabular-nums;
+    text-align: right;
+    word-break: break-word;
+}
+
+/* ------------------------------------------------------------
+   Botones.
+   ------------------------------------------------------------ */
+.botones {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.botones button {
+    width: 100%;
+    padding: 14px 16px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #fff;
+    background: #4285f4;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.botones button:active {
+    background: #2f6fd8;
+}
+
+.botones button:disabled {
+    background: #3a3a3a;
+    color: #888;
+    cursor: default;
+}
+
+#btn-reiniciar,
+#btn-salir {
+    background: #3a3a3a;
+    padding: 10px 16px;
+    font-size: 0.9rem;
+}
+
+#btn-reiniciar:active,
+#btn-salir:active {
+    background: #4a4a4a;
+}

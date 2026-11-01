@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>JL Studio - Prueba de Dos Puntos</title>
+    <link rel="stylesheet" href="./src/estilos.css">
+
+    <!--
+      Three.js se carga desde jsDelivr con versión fija (0.185.1),
+      sin servidor de compilación. Debe ir ANTES de los scripts de tipo module.
+    -->
+    <script type="importmap">
+    {
+        "imports": {
+            "three": "https://cdn.jsdelivr.net/npm/three@0.185.1/build/three.module.js",
+            "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.185.1/examples/jsm/"
+        }
+    }
+    </script>
+</head>
+<body>
+
+    <!-- Raíz del DOM Overlay: todo lo que se ve encima de la cámara en AR va aquí. -->
+    <div id="overlay">
+
+        <header id="cabecera">
+            <h1>JL Studio</h1>
+            <p class="subtitulo">Prueba de dos puntos (Android)</p>
+        </header>
+
+        <p id="estado" class="estado">Comprobando el navegador...</p>
+
+        <section id="bloque-inicio" class="bloque">
+            <p class="aviso">
+                Abre esta página en Chrome (Android) desde una dirección HTTPS.
+                Cuando el navegador sea compatible, aparecerá el botón de iniciar AR.
+            </p>
+        </section>
+
+        <section id="bloque-diagnostico" class="bloque">
+            <h2>Diagnóstico</h2>
+            <div class="dato"><span>Versión de Chrome</span><strong id="diag-chrome">-</strong></div>
+            <div class="dato"><span>HTTPS</span><strong id="diag-https">-</strong></div>
+            <div class="dato"><span>WebXR AR</span><strong id="diag-ar">-</strong></div>
+            <div class="dato"><span>Workaround de capas</span><strong id="diag-workaround">-</strong></div>
+            <div class="dato"><span>Tipo de capa en la sesión</span><strong id="diag-capa">-</strong></div>
+            <div class="dato"><span>DOM Overlay</span><strong id="diag-overlay">-</strong></div>
+        </section>
+
+        <section id="bloque-ar" class="bloque oculto">
+            <h2>Puntos</h2>
+            <div class="dato"><span>Suelo</span><strong id="suelo">Buscando...</strong></div>
+            <div class="dato"><span>Punto 1</span><strong id="pt1">sin marcar</strong></div>
+            <div class="dato"><span>Punto 2</span><strong id="pt2">sin marcar</strong></div>
+            <div class="dato"><span>Distancia medida</span><strong id="distancia">-</strong></div>
+
+            <div class="botones">
+                <button id="btn-marcar" type="button">Marcar punto 1</button>
+                <button id="btn-reiniciar" type="button">Reiniciar puntos</button>
+                <button id="btn-salir" type="button">Salir de AR</button>
+            </div>
+        </section>
+
+    </div>
+
+    <script type="module" src="./src/main.js"></script>
+
+</body>
+</html>
